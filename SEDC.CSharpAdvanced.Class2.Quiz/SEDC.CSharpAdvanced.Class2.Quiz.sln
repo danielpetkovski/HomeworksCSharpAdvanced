@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.CSharpAdvanced.Quizz.App", "SEDC.CSharpAdvanced.Quizz.App\SEDC.CSharpAdvanced.Quizz.App.csproj", "{D4FDD67B-77EC-46CA-9446-EDA8B5403677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.CSharpAdvanced.Quizz.Data", "SEDC.CSharpAdvanced.Quizz.Data\SEDC.CSharpAdvanced.Quizz.Data.csproj", "{97A5CCFA-493D-499C-9C25-8FCB7D8581FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4FDD67B-77EC-46CA-9446-EDA8B5403677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4FDD67B-77EC-46CA-9446-EDA8B5403677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4FDD67B-77EC-46CA-9446-EDA8B5403677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4FDD67B-77EC-46CA-9446-EDA8B5403677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97A5CCFA-493D-499C-9C25-8FCB7D8581FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A5CCFA-493D-499C-9C25-8FCB7D8581FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A5CCFA-493D-499C-9C25-8FCB7D8581FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A5CCFA-493D-499C-9C25-8FCB7D8581FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9E0D087-5C06-43EC-87CB-B61DBBC3927B}
+	EndGlobalSection
+EndGlobal
