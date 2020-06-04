@@ -12,16 +12,18 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
     {
         public UserServices _userRepository;
 
+        //inicijalizacija na repository pod UserServices
         public Register()
         {
             _userRepository = new UserServices();
         }
-
+        //samo za proverka na username      (kombiniranje so login??)
         public User CheckIfUserExists(string username)
         {
             return _userRepository.GetUserByUserName(username);
         }
 
+        //Logiranje na user i proverka dali e zavrsen testot
         public User Login(string username, string password)
         {
             User user = _userRepository.GetUserByUserName(username);
@@ -46,14 +48,17 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
 
             if (user.IsDone)
             {
-                Console.WriteLine($"Hello {user.FullName}, you have already finished the test and got grade {user.Grade}."); 
+                Console.WriteLine($"Hello {user.FullName}, you have already finished the test and got grade {user.Grade}. Logging out...");
+                Thread.Sleep(3000);
                 return null;
             }
 
             Console.WriteLine($"Welcome {user.FullName}");
+            Thread.Sleep(2000);
             return user;
         }
 
+        //proverka na tip na user Teacher ili Student
         public int UserType(User user)
         {
             if (!user.IsTeacher)
@@ -62,7 +67,7 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
             }
             return 2;
         }
-
+        //generiranje na listata na studenti
         public List<User> GenerateListOfStudents()
         {
             return _userRepository.GetAllStudents();

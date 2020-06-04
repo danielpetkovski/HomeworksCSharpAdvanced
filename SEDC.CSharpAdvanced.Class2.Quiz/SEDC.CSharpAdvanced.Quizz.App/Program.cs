@@ -19,7 +19,7 @@ namespace SEDC.CSharpAdvanced.Quizz.App
                     Console.WriteLine("Welcome to the QUIZZ App");
                     Console.WriteLine("Please enter your user name:");
                     string username = Console.ReadLine();
-
+                    //proverka na username
                     var checkingUsername = register.CheckIfUserExists(username);
 
                     if (checkingUsername == null)
@@ -43,7 +43,7 @@ namespace SEDC.CSharpAdvanced.Quizz.App
                     }
                     Console.WriteLine("Please enter your password:");
                     string password = Console.ReadLine();
-
+                    // proverka na password i prevzemanje user (dopolnitelna proverka dali ima zavrseno test--)
                     User user = register.Login(username, password);
                     if (user == null)
                     {
@@ -61,7 +61,7 @@ namespace SEDC.CSharpAdvanced.Quizz.App
                             int fifthAnswer = Questions.FifthQuestion();
 
                             int grade = firstAnswer + secondAnswer + thirdAnswer + fourthAnswer + fifthAnswer;
-                            // if every answer is incorect grade should be 1
+                            // if every answer is incorect grade should be 1 (grade mora od 1-5)
                             if (grade == 0)
                             {
                                 grade++;
