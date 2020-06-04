@@ -17,11 +17,13 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
             _userRepository = new UserServices();
         }
 
+        public User CheckIfUserExists(string username)
+        {
+            return _userRepository.GetUserByUserName(username);
+        }
+
         public User Login(string username, string password)
         {
-            
-            
-
             User user = _userRepository.GetUserByUserName(username);
 
             if (user.Password != password)
@@ -40,10 +42,55 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
                     }
                 }
             }
+            Console.Clear();
+
+            if (user.IsDone)
+            {
+                Console.WriteLine($"Hello {user.FullName}, you have already finished the test and got grade {user.Grade}."); 
+                return null;
+            }
 
             Console.WriteLine($"Welcome {user.FullName}");
             return user;
         }
+
+        public int UserType(User user)
+        {
+            if (!user.IsTeacher)
+            {
+                return 1;
+            }
+            return 2;
+        }
+
+        public List<User> GenerateListOfStudents()
+        {
+            return _userRepository.GetAllStudents();
+        
+        }
+
+
+
+        // za prikazuvanje na studentite crveni i zeleni zavrseni
+        public void ShowStudents(List<User> listOfStudents)
+        {
+            foreach (User student in listOfStudents)
+            {
+                if (student.IsDone)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"The student {student.FullName} has grade {student.Grade}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"The student {student.FullName} has not finished yet!");
+                    Console.ResetColor();
+                }
+            }
+        }
+
 
 
 

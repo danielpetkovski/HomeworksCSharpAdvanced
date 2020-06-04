@@ -8,73 +8,109 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Database
     {
 
 
-        public static bool FirstQuestion()
+        public static int FirstQuestion()
         {
             Console.WriteLine("Q: What is the capital of Tasmania?");
-            Console.WriteLine("a: Dodoma \n b: Hobart \n c: Launceston \n d: Wellington");
-            string firstAnswer = Console.ReadLine();
-            if (firstAnswer == "a")
+            Console.WriteLine(" 1: Dodoma \n 2: Hobart \n 3: Launceston \n 4: Wellington");
+            int firstAnswer = ToInteger(1, 4);
+
+
+            if (firstAnswer == 1)
             {
-                return true;
+                return 1;
             }
-            return false;
+            return 0;
 
 
         }
         
-        public static bool SecondQuestion()
+        public static int SecondQuestion()
         {
             Console.WriteLine("Q: What is the tallest building in the Republic of the Congo?");
-            Console.WriteLine("a: Kinshasa Democratic Republic of the Congo Temple \n b: Palais de la Nation \n" +
-                " c: Kongo Trade Centre \n" +
-                " d: Nabemba Tower");
-            string secondAnswer = Console.ReadLine();
-            if (secondAnswer == "a")
+            Console.WriteLine(" 1: Kinshasa Democratic Republic of the Congo Temple \n 2: Palais de la Nation \n" +
+                " 3: Kongo Trade Centre \n" +
+                " 4: Nabemba Tower");
+            int secondAnswer = ToInteger(1, 4);
+            if (secondAnswer == 1)
             {
-                return true;
+                return 1;
             }
-            return false;
+            return 0;
         }
 
-        public static bool ThirdQuestion()
+        public static int ThirdQuestion()
         {
             Console.WriteLine("Q: Which of these is not one of Pluto's moons?");
-            Console.WriteLine("a: Styx \n b: Hydra \n c: Nix \n d: Lugia");
+            Console.WriteLine(" 1: Styx \n 2: Hydra \n 3: Nix \n 4: Lugia");
 
-            string thirdAnswer = Console.ReadLine();
-            if (thirdAnswer == "a")
+            int thirdAnswer = ToInteger(1, 4);
+            if (thirdAnswer == 1)
             {
-                return true;
+                return 1;
             }
-            return false;
+            return 0;
         }
 
-        public static bool FourthQuestion()
+        public static int FourthQuestion()
         {
             Console.WriteLine("Q: What is the smallest lake in the world?");
-            Console.WriteLine("a: Onega Lake \n b: Benxi Lake \n c: Kivu Lake \n d: Wakatipu Lake");
+            Console.WriteLine(" 1: Onega Lake \n 2: Benxi Lake \n 3: Kivu Lake \n 4: Wakatipu Lake");
 
-            string fourthAnswer = Console.ReadLine();
-            if (fourthAnswer == "a")
+            int fourthAnswer = ToInteger(1, 4);
+            if (fourthAnswer == 1)
             {
-                return true;
+                return 1;
             }
-            return false;
+            return 0;
 
         }
 
-        public static bool FifthQuestion()
+        public static int FifthQuestion()
         {
             Console.WriteLine("5.Q: What country has the largest population of alpacas?");
-            Console.WriteLine("a: Chad \n b: Peru \n c: Australia \n d: Niger");
+            Console.WriteLine(" 1: Chad \n 2: Peru \n 3: Australia \n 4: Niger");
 
-            string fifthAnswer = Console.ReadLine();
-            if (fifthAnswer == "a")
+            int fifthAnswer = ToInteger(1, 4);
+            if (fifthAnswer == 1)
             {
-                return true;
+                return 1;
             }
-            return false;
+            return 0;
         }
 
+        public static int ToInteger(int min, int max)
+        {
+            int parsedNumber = 0;
+            bool isValid = false;
+            while (!isValid)
+            {
+                try
+                {
+                    parsedNumber = int.Parse(Console.ReadLine());
+                    if (!(parsedNumber >= min && parsedNumber <= max))
+                    {
+                        throw new Exception($"Please select from given input range from {min} to {max}.");
+                    }
+                    isValid = !isValid;
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("Please enter argument.");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Not valid input.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Number is too large or too low.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return parsedNumber;
+        }
     }
 }

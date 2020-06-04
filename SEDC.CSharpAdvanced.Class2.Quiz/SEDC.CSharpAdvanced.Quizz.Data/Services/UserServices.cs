@@ -14,10 +14,9 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
             return Users.FirstOrDefault(_user => _user.UserName == username);
         }
 
-        
-
-
-
-
+        public List<User> GetAllStudents()
+        {
+            return Users.Where(_user => _user.IsTeacher == false).ToList();
+        }
     }
 }
