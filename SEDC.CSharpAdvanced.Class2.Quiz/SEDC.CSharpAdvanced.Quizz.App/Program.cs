@@ -44,7 +44,7 @@ namespace SEDC.CSharpAdvanced.Quizz.App
                     Console.WriteLine("Please enter your password:");
                     string password = Console.ReadLine();
                     // proverka na password i prevzemanje user (dopolnitelna proverka dali ima zavrseno test--)
-                    User user = register.Login(username, password);
+                    User user = register.Login(checkingUsername, password);
                     if (user == null)
                     {
                         break;

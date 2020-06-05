@@ -24,10 +24,8 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
         }
 
         //Logiranje na user i proverka dali e zavrsen testot
-        public User Login(string username, string password)
+        public User Login(User user, string password)
         {
-            User user = _userRepository.GetUserByUserName(username);
-
             if (user.Password != password)
             {
                 Console.WriteLine(" try: 1/3 \n The password is incorrect try again:");
@@ -57,7 +55,6 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
             Thread.Sleep(2000);
             return user;
         }
-
         //proverka na tip na user Teacher ili Student
         public int UserType(User user)
         {
@@ -73,9 +70,6 @@ namespace SEDC.CSharpAdvanced.Quizz.Data.Services
             return _userRepository.GetAllStudents();
         
         }
-
-
-
         // za prikazuvanje na studentite crveni i zeleni zavrseni
         public void ShowStudents(List<User> listOfStudents)
         {
